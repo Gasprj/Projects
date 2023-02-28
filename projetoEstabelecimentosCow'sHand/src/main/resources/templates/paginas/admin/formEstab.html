@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="hhtp://thymeleaf.org" xmlns:layout="http://ultraq.net.nz/thymeleaf/layout">
+
+<head>
+<meta charset="utf-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+<link rel="stylesheet" type="text/css" href="/CSS/StyleCSS.css"/>
+
+<title>Novo Estabelecimento</title>
+</head>
+<nav class="navbar navbar-expand-sm navbar-light" id="neubarr">
+  <div class="container" style="height: 100px">
+    <a class="navbar-brand" href="/"><img src="/imagens/LogoSemNome.png" height="80" /></a>
+      <ul class="navbar-nav ml-auto">
+         <li><a href="/logout"><button type="button" class="btn btn-primary"><i class="bi bi-x-circle"></i>&nbsp;&nbsp;Sair</button></a></li>
+         <li><a href="/"><button type="button" class="btn btn-primary"><i class="bi bi-house"></i>&nbsp;&nbsp;Home</button></a></li>
+         <li><a href="/usuario/novoAdmin"><button type="button" class="btn btn-primary"><i class="bi bi-person-plus-fill"></i>&nbsp;&nbsp;Adicionar administrador</button></a></li>
+         <li><a href="/estabelecimento/lista"><button type="button" class="btn btn-primary"><i class="bi bi-shop"></i>&nbsp;&nbsp;Lista de estabelecimentos</button></a></li>
+      </ul>
+    </div>
+</nav>
+<br><br>
+<body style="background:rgb(48,48,48)">
+	<div style="text-align:center;color:#bdc3c7">
+		<h1>Cadastrar um novo estabelecimento</h1>
+	</div>
+<!--  <div style="text-align:center;color:rgb(44, 62, 80);background:rgb(207, 222, 243)">
+		<h1><b>Cadastrar um novo estabelecimento</b></h1>
+</div>-->
+<br>
+	<form method="post">
+	<div class="container formCadastroEstab">
+		<div class="row" style="text-align:center; color:rgb(240,240,240)">
+				Nome:<input type="text" placeholder="Digite o nome" value="" name ="nome" required/><br>
+				Endereço:<input type="text" placeholder="Digite o endereço" value=""  name="endereco" required/><br>
+				telefone:<input type="text" placeholder="Digite o telefone" value=""  name="telefone" required/> 
+		</div>
+	</div>
+		<br>
+		<div style="text-align:center">
+			<!--  <a class="btn btn-secondary" aria-current="page" href="/estabelecimento/lista">Lista de Estabelecimentos</a>-->
+			<a class="btn btn-secondary" style="background:rgb(10,105,325)" aria-current="page" href="/estabelecimento/lista">Voltar</a>
+			<button type="submit" style="background:rgb(10,105,325)" class="btn btn-secondary">Salvar</button>
+		</div>
+	</form>
+
+
+</body>
+</html>

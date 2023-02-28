@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="hhtp://thymeleaf.org" xmlns:layout="http://ultraq.net.nz/thymeleaf/layout">
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, max-scale=1.0"/>
+
+<link rel="stylesheet" type="text/css" href="/CSS/StyleCSS2.css"/>
+<title>Cow's Hand</title>
+</head>
+<body>
+
+<!-- h1>Bem-vindo ao <b>"Cow's Hand"<b></b></h1-->
+<div class="login-wrap">
+	<div class="login-html">
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Login</label>
+		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Cadastrar</label>
+		<div class="login-form">
+		<div class="sign-in-htm">
+			<form method="post" action="/login" th:object="${user}" >
+				<div class="group">
+					<label for="user" class="label">Email</label>
+					<input style="background:rgba(136,184,250,.8)" type="text" th:field="*{email}" placeholder="Digite seu email"  id="user"  class="input" required/>
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Senha</label>
+					<input style="background:rgba(136,184,250,.8)" type="password" th:field="*{senha}" placeholder="Digite sua senha" class="input" id="pass" required/>
+				</div>
+				<br>
+				<div th:text="${msg}" th:if="${msg != null}"></div>
+				<div th:text="${mensagem}" th:if="${mensagem != null}"></div>
+				<br>
+				<div class="group">
+					<input type="submit" class="button" value="Entrar">
+				</div>
+				</form>
+			</div>
+			<div class="sign-up-htm">
+			<form method="post" action="usuario/novo">
+				<div class="group">
+					<label for="user" class="label">Nome</label>
+					<input style="background:rgba(136,184,250,.8)" type="text" value="" name="nome" id="user" class="input" placeholder="Digite seu nome" required/>
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Email</label>
+					<input style="background:rgba(136,184,250,.8)" type="text" value="" name ="email" class="input" placeholder="Digite seu email" required/>
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Telefone</label>
+					<input style="background:rgba(136,184,250,.8)" type="text" value="" name="telefone" class="input" placeholder="Digite seu telefone" required/> 
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Senha</label>
+					<input style="background:rgba(136,184,250,.8)" type="password" value="" name="senha" class="input" placeholder="Digite uma senha" required/>
+				</div>
+				<div class="group">
+					<input type="submit" class="button" value="Salvar">
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<br><br><br>
+</body>
+</html>

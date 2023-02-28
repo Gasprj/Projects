@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:th="hhtp://thymeleaf.org" xmlns:layout="http://ultraq.net.nz/thymeleaf/layout">
+
+<head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+ 	<link rel="stylesheet" type="text/css" href="/CSS/StyleCSS.css"/>
+	
+<!--     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+--> 
+<title>Cow's Hand</title>
+</head>
+
+<nav class="navbar navbar-expand-sm navbar-light" id="neubar">
+  <div class="container" style="height: 100px">
+    <a class="navbar-brand" href="/"><img src="/imagens/LogoSemNome.png" height="80" /></a>
+      <ul class="navbar-nav ml-auto">
+         <li><a href="/logout"><button type="button" class="btn btn-primary"><i class="bi bi-x-circle"></i>&nbsp;&nbsp;Sair</button></a></li>
+         <li><a href="/"><button type="button" class="btn btn-primary"><i class="bi bi-house"></i>&nbsp;&nbsp;Home</button></a></li>
+         <li><a href="/usuario/telas"><button type="button" class="btn btn-primary"><i class="bi bi-shop"></i>&nbsp;&nbsp;Estabelecimentos</button></a></li>
+         <li><a href="/usuario/produtos"><button type="button" class="btn btn-primary"><i class="bi bi-list-task"></i>&nbsp;&nbsp;Monte sua lista</button></a></li>
+
+      </ul>
+    </div>
+
+</nav>
+<br>
+
+<body style="background:linear-gradient(to top,#2196F3, rgb(207, 222, 243))">
+<!--	<div style="text-align:center;color:#bdc3c7">
+		<h1>Valor da Lista de Compras por Estabelecimento</h1>
+ 	</div>-->
+<div style="text-align:center;color:rgb(44, 62, 80)">
+		<h1><b>Valor da lista de compras por estabelecimento</b></h1>
+</div>
+<br>
+<div class="container">	
+ 	<table class="table table-light table-striped">
+	<thead>
+		<tr>
+			<th>Estabelecimento</th>
+			<th>Endereço</th>
+			<th>Telefone</th>
+			<th style="text-align:center">Disponível</th>
+			<th style="text-align:center">Valor da compra</th>
+		</tr>
+	</thead> 	
+ 		<tbody>
+		<tr th:each="estabelecimento : ${result}">
+  		<td><a th:href="${(#mvc.url('UC#exibirResultadoDetalhado').arg(0, estabelecimento.id)).build()}" ><span th:text="${estabelecimento.nome}"></span></a></td>
+<!--			<td><a data-toggle="modal" href="#modalResults" th:id="${estabelecimento.nome}"><span th:text="${estabelecimento.nome}"></span></a></td>
+-->			<td><span th:text="${estabelecimento.endereco}"></span></td>
+			<td><span th:text="${estabelecimento.telefone}"></span></td>
+			<td style="text-align:center"><span th:text="${estabelecimento.qtdItens}"></span>/<span th:text="${estabelecimento.qtdItensTotal}"></span></td>
+			<td style="text-align:center"><span th:text="${estabelecimento.valorCompra}"></span></td>
+		</tr>
+		</tbody>
+	</table>
+<br>
+	
+<div align="center">
+	<a class="btn btn-secondary" style="background:rgb(10,105,325)" aria-current="page" th:href="${(#mvc.url('UC#criarCesta')).build()}">Voltar</a>
+</div>
+	
+</div>
+
+<!-- Modal Teste -->
+<!-- 
+<div th:each="estabelecimento : ${result}">
+<div class="modal fade bd-example-modal-lg" th:id="modalResults" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" style="background:whitesmoke">
+		
+		
+	<div style="text-align:center;color:linear-gradient(to right, rgb(29, 67, 80), rgb(164, 57, 49))">
+		<h1><span th:text="${estabelecimento.nome}"></span></h1>
+	</div>
+<br>
+	<div style="display:flex">
+	<div class="container">
+	<table class="table" id="tabelaResultado">
+		<thead class="thead-dark">
+		    <tr>
+		      <th style="text-align:left" scope="col">Produtos Disponíveis</th>
+		      <th style="text-align:left" scope="col">Preços</th>
+		    </tr>
+	 	</thead>
+		<tbody>
+		
+		</tbody>
+	</table>
+	</div>
+<br>	
+	<div class="container">
+	<table class="table" style="text-align:center">
+		<thead class="thead-dark">
+		    <tr>
+		      <th scope="col">Cesta de Compras</th>
+		    </tr>
+	 	</thead>
+		<tbody style="text-align:center">
+			<tr th:each="ls : ${list}">
+				<td><span th:text= "${ls}" th:name="produtos" th:value="${ls}"></span></td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	<div class="container">
+	<table class="table table-striped" style="text-align:center">
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col">Quantidade</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="quant : ${qtd}">
+				<td><span th:text= "${quant}" th:name="quantidade" th:value="${quant}"></span></td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	</div>
+		      
+      <div class="modal-footer">
+     	<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+ -->
+	
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

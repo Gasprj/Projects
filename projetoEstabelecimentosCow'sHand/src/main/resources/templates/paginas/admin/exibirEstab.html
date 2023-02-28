@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="hhtp://thymeleaf.org" xmlns:layout="http://ultraq.net.nz/thymeleaf/layout">
+
+<head>
+<!-- CSS only -->
+<meta charset="utf-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+<link rel="stylesheet" type="text/css" href="/CSS/StyleCSS.css"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="CSS/StyleCSS.css"/>
+<link rel="stylesheet" href="css/animations.css">
+	
+<title>Lista de Estabelecimentos</title>
+</head>
+<nav class="navbar navbar-expand-sm navbar-light" id="neubarr">
+  <div class="container" style="height: 100px">
+    <a class="navbar-brand" href="/"><img src="/imagens/LogoSemNome.png" height="80" /></a>
+      <ul class="navbar-nav ml-auto">
+         <li><a href="/logout"><button type="button" class="btn btn-primary"><i class="bi bi-x-circle"></i>&nbsp;&nbsp;Sair</button></a></li>
+         <li><a href="/"><button type="button" class="btn btn-primary"><i class="bi bi-house"></i>&nbsp;&nbsp;Home</button></a></li>
+         <li><a href="/usuario/novoAdmin"><button type="button" class="btn btn-primary"><i class="bi bi-person-plus-fill"></i>&nbsp;&nbsp;Adicionar administrador</button></a></li>
+         <li><a href="/estabelecimento/novo"><button type="button" class="btn btn-primary"><i class="bi bi-plus-circle"></i>&nbsp;&nbsp;Adicionar estabelecimento</button></a></li>
+      </ul>
+    </div>
+</nav>
+<br><br>
+<body style="background:rgb(48,48,48)">
+
+<div class="container">
+	<div style="text-align:center;color:#bdc3c7">
+		<h1>Estabelecimentos</h1>
+ 	</div>
+ <!--  <br><br>
+	 <ul class="nav nav-tabs">
+	  <li class="nav-item">
+	    <a class="nav-link active" aria-current="page" href="/estabelecimento/novo">Inserir Estabelecimento</a>
+	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link" href="/usuario/novoAdmin">Criar Administrador</a>
+	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link" href="#">Link</a>
+	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link disabled">Disabled</a>
+	  </li>
+	</ul>-->
+ <br>
+ 	<table class="table  table-striped table-dark">
+	<thead>
+		<tr>
+			<th>Nome</th>
+			<th>Endereço</th>
+			<th>Telefone</th>
+			<th style="text-align: center">Editar</th>
+			<th style="text-align: center">Deletar</th>
+		</tr>
+	</thead> 	
+ 		<tbody>
+		<tr th:each="estabelecimento : ${estabelecimentos}">
+			<td><a th:href="${(#mvc.url('EC#inserirEexibirProdutos').arg(0, estabelecimento.id)).build()}"><span th:text="${estabelecimento.nome}"></span></a></td>
+			<td><span th:text="${estabelecimento.endereco}"></span></td>
+			<td><span th:text="${estabelecimento.telefone}"></span></td>
+			<td style="text-align: center"><a th:href="${(#mvc.url('EC#editarEstab').arg(0, estabelecimento.id)).build()}"><i class="bi bi-clipboard2-check"></a></td>
+			<td style="text-align: center"><a th:href="${(#mvc.url('EC#deletarEstabelecimentoID').arg(0, estabelecimento.id)).build()}"><i class="bi bi-trash"></a></td>
+		</tr>
+		</tbody>
+	</table>
+</div>
+	
+</body>
+</html>
