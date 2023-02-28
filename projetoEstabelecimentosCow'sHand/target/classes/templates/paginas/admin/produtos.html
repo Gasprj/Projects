@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="hhtp://thymeleaf.org" xmlns:layout="http://ultraq.net.nz/thymeleaf/layout">
+
+<head>
+<!-- CSS only -->
+<meta charset="utf-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+<link rel="stylesheet" type="text/css" href="/CSS/StyleCSS.css"/>
+<link rel="stylesheet" href="css/animations.css">
+
+<title>Lista de Produtos</title>
+</head>
+<nav class="navbar navbar-expand-sm navbar-light" id="neubarr">
+  <div class="container" style="height: 100px">
+    <a class="navbar-brand" href="/"><img src="/imagens/LogoSemNome.png" height="80" /></a>
+      <ul class="navbar-nav ml-auto">
+         <li><a href="/logout"><button type="button" class="btn btn-primary"><i class="bi bi-x-circle"></i>&nbsp;&nbsp;Sair</button></a></li>
+         <li><a href="/"><button type="button" class="btn btn-primary"><i class="bi bi-house"></i>&nbsp;&nbsp;Home</button></a></li>
+         <li><a href="/estabelecimento/lista"><button type="button" class="btn btn-primary"><i class="bi bi-plus-circle"></i>&nbsp;&nbsp;Lista de estabelecimentos</button></a></li>
+      </ul>
+    </div>
+</nav>
+<br><br>
+<body style="background:rgb(48,48,48)">
+
+<div  th:each="estab : ${estabelecimento}">
+	<div style="text-align:center;color:#bdc3c7">
+	<h1>Estabelecimento <span th:text="${estab.nome}"></span></h1>
+	</div>
+<!-- <br>
+	<table class="table table-dark table-striped">
+		<tr th:each="estab : ${estabelecimento}">
+			<td><span th:text="${estab.nome}"></span></td>
+			<td><span th:text="${estab.endereco}"></span></td>
+		</tr>
+	</table>
+-->
+
+<br><br>
+
+		
+	<form method="post">
+		<div class="container" style="background:#E0EAFC; width:450pt">
+			<div class="table table-striped" style="text-align:center">
+			<br>
+				<h4>Adicionar Produto</h4>
+			<br>
+           	 	Nome: <input type="text" placeholder="Nome do produto" value="" name="nome" required/>
+            	Preço: <input type="text" placeholder="Preço do produto" value="" name="preco" required/>
+			</div>
+			<br>
+		</div>
+	<br>
+		<div style="text-align:center">
+			<a class="btn btn-secondary" style="background:rgb(10,105,325)" aria-current="page" href="/estabelecimento/lista">Voltar</a>
+			<button type="submit" style="background:rgb(10,105,325)" class="btn btn-secondary">Salvar</button>
+			<!-- <a class="btn btn-secondary" aria-current="page" href="/estabelecimento/lista">Lista de Estabelecimentos</a>-->
+		</div>  
+	</form>
+<br><br>
+   <div class="container" style="background:#E0EAFC; width:450pt">
+<br>
+	   <div style="text-align:center">
+	    <h4>Lista de Produtos</h4>
+	    </div>
+<br>
+	<table class="table table-striped">
+		<thead style="background:#2F4F4F; color:white">
+			<tr>
+				<th>Produto</th>
+				<th style="text-align:center">Preço</th>
+				<th style="text-align: center">Deletar</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="prods : ${produtos}">
+				<td><a th:href="${(#mvc.url('EC#editarProdutoID').arg(0, estab.id).arg(1, prods.id)).build()}"><span th:text= "${prods.nome}"></span></a></td>
+				<td style="text-align:center"><span th:text= "${prods.preco}"></span></td>
+				<td style="text-align: center"><a th:href="${(#mvc.url('EC#deletarProdutoID').arg(0, prods.id)).build()}"><i class="bi bi-trash"></a></td>
+			</tr>
+		</tbody>
+
+	</table>
+	</div>
+</div>
+	
+</body>
+</html>

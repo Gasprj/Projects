@@ -1,0 +1,310 @@
+.detalhesEvento{
+	box-shadow: 0px 0px 5px grey;
+	padding-top: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-bottom: 60px;
+	background-color:white;
+}
+.formConvidado{
+	box-shadow: 0px 0px 5px grey;
+	padding-top: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	margin-bottom: 60px;
+	background-color:white;
+}
+.formLogin{
+	box-shadow: 0px 0px 20px rgba(235, 87, 87);
+	padding-top: 05px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	margin-bottom: 50px;
+	background-color:white;
+	width: 25%;
+}
+.formCadastro{
+	box-shadow: 0px 0px 20px rgba(235, 87, 87);
+	padding-top: 05px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	margin-bottom: 50px;
+	background-color:white;
+	width: 70%;
+}
+.formEvento
+{
+	padding-top: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	background: white;
+	border-radius: 10px;
+	box-shadow: 15px 15px 20px rgba(0,0,0,0.10);
+}
+.tabelaConvidado{
+	padding-top: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	width: 50%;
+	background-color:white;
+}
+
+.formDescricao{
+	text-align: center;
+	margin-top: 30px;
+	padding-top: 3px;
+	padding-bottom:1px;
+	background:rgb(207, 222, 243);
+	box-shadow: 4px 6x 12px grey;
+}
+
+.formImg{
+	margin-top: 290px;
+}
+
+h1{
+	text-align: center; 
+	color: #008080; 
+	
+}
+h2{
+	text-align: center; 
+	color: #454545; 
+	
+}
+h3{
+	text-align: center; 
+	color: #bdc3c7; 
+	background:linear-gradient(to right, rgb(235, 87, 87), rgb(0, 0, 0));
+	
+}
+
+h4{
+	text-align: center; 
+	color: #008080; 
+	font-size: 20px;
+}
+
+h5{
+	text-align: center; 
+	color: #2E8B57; 
+	font-size: 22px;
+	
+}
+
+.nav-wrapper{
+	background: linear-gradient(to rigth, red, yellow);
+}
+
+.botao{
+
+	text-align:center;
+	
+    width:15%;
+
+    height:40px;
+
+    border:1px solid #FFC0CB;
+
+ 	background-color:rgb(164, 57, 49);
+
+    border-radius:25px;
+
+    font-size:22px;
+
+    color: white;
+
+    font-weight:700;
+
+    cursor: pointer;
+
+    outline: none;
+
+}
+.botao:hover{
+	border-color:rgb(164, 57, 49); transition:.5s;
+}
+
+.center
+{
+position: absolute;
+top: 10%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 400px;
+border-radius: 10px;
+
+}
+.center h1{
+	text-align:center;color: #4aa49b;padding: 20px 0;border-bottom: 1px solid #4aa49b;
+}
+.center form{
+	padding:0 40px;box-sizing: border-box
+}
+form .txt_field{
+position: relative;
+border-bottom: 2px solid #4aa49b;
+margin: 30px 0;
+}
+
+.txt_field input{
+width: 100%;
+padding:0 5px;
+height: 40px;
+font-size: 16px;
+border: none;
+background: none;
+outline: none;
+}
+.txt_field label{
+position: absolute;
+top: 50%;
+left: 5px;
+color: #4aa49b;
+transform: translateY(-50%);
+font-size: 16px;
+pointer-events: none;
+transition: .5s;
+}
+
+.txt_field span::before{
+	content: '';position: absolute;top: 40px;left: 0;width: 0%;height: 2px;background: #4aa49b;transition: .5s;
+}
+.txt_field input:focus ~ label,
+.txt_field input:valid ~ label{
+	top: -5px;color:#4aa49b;
+}
+.txt_field input:focus ~ span::before,
+.txt_field input:valid ~ span::before{
+	width: 100%;
+}
+.pass{
+margin: -5px 0 20px 5px;
+color: #4aa49b;
+cursor: pointer;
+}
+.pass:hover{
+text-decoration: underline;
+}
+input[type="submit"]{
+	width:100%; 
+	height:50px; 
+	border:2px solid #B4E1FF; 
+	background:rgb(164, 57, 49); 
+	border-radius:25px; font-size:18px; 
+	color: white; 
+	font-weight:700; 
+	cursor:pointer; 
+	outline:none;
+}
+input[type="submit"]:hover{
+	border-color:rgb(164, 57, 49); transition:.5s;
+}
+
+.signup_link{
+	margin: 30px 0;text-align: center;font-size: 16px;color: 4aa49b;
+}
+.signup_link a{
+	color: #4aa49b;text-decoration: none;
+}
+/* CSS reset */
+*, *:before, *:after {
+	margin:0;padding:0;font-family: Arial,sans-serif;
+}
+/* remove a linha dos links */
+a{
+	text-decoration: none;
+}
+/* esconde as ancoras da tela */
+a.links{
+	display: none;
+}
+
+/* formatacao da navbar bootstrap */
+
+#neubar{
+  background: #2196f3;
+  box-shadow: 4px 7px 14px rgba(0,0,0,0.4)
+}
+
+#neubarr{
+  background:black;
+  box-shadow: 4px 7px 14px rgba(255,255,255,0.4)
+}
+ 
+.nav-item .active {
+  border-radius: 6px;
+  height: 400px;
+  background: linear-gradient(145deg, #ffe7ca, #f5d7b2);
+  box-shadow:  4px 4px 8px #ddc1a0,
+               -4px -4px 8px #f7e5cc;
+}
+
+.btn-primary {
+    background-color: transparent;
+    color: white;
+    border: 0;
+}
+
+.btn-secondary {
+    background-color: rgb(10,105,325);
+    color: white;
+    border: 0;
+}
+
+#neubar .dropdown-menu a:hover {
+  color: #454545
+}
+
+#neubar a {
+ 
+  padding-left:12px;
+  padding-right:12px;
+}
+#neubar .dropdown-menu {
+  background : #545454
+}
+a.navbar-brand {
+  color: #454545
+}
+
+.formDescricaoIndex{
+	text-align:center;
+	color:rgb(44, 62, 80);
+	margin-top:15px;
+	padding-top:15px;
+	padding-left:90px;
+	padding-right:90px;
+	/*background:rgb(245,245,220);*/
+	background:transparent;
+	width: 1200px;
+}
+
+.formCadastroAdm{
+	text-align:center;
+	color:rgb(44, 62, 80);
+	margin-top:15px;
+	padding-top:15px;
+	padding-left:70px;
+	padding-right:70px;
+	padding-bottom:36px;
+	background:rgb(20,20,20);
+	/*background:black;*/
+	width: 700px;
+}
+
+.formCadastroEstab{
+	text-align:center;
+	color:rgb(44, 62, 80);
+	margin-top:15px;
+	padding-top:15px;
+	padding-left:70px;
+	padding-right:70px;
+	padding-bottom:36px;
+	background:rgb(20,20,20);
+	/*background:black;*/
+	width: 700px;
+}

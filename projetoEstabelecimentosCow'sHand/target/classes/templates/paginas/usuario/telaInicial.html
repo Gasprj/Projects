@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html xmlns:th="hhtp://thymeleaf.org" xmlns:layout="http://ultraq.net.nz/thymeleaf/layout">
+
+<head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+ 	<link rel="stylesheet" type="text/css" href="/CSS/StyleCSS.css"/>
+
+<title>Cow's Hand</title>
+
+</head>
+<nav class="navbar navbar-expand-sm navbar-light" id="neubar">
+  <div class="container" style="height: 100px">
+    <a class="navbar-brand" href="/"><img src="/imagens/LogoSemNome.png" height="80" /></a>
+      <ul class="navbar-nav ml-auto">
+         <li><a href="/logout"><button type="button" class="btn btn-primary"><i class="bi bi-x-circle"></i>&nbsp;&nbsp;Sair</button></a></li>
+         <li><a href="/"><button type="button" class="btn btn-primary"><i class="bi bi-house"></i>&nbsp;&nbsp;Home</button></a></li>
+         <li><a href="/usuario/produtos"><button type="button" class="btn btn-primary"><i class="bi bi-list-task"></i>&nbsp;&nbsp;Monte sua lista</button></a></li>
+
+      </ul>
+    </div>
+
+</nav>
+<br>
+<!-- 
+<body style="background:linear-gradient(to right, rgb(29, 67, 80), rgb(164, 57, 49))">
+ -->
+<body style="background:linear-gradient(to top, #2196F3, rgb(207, 222, 243))">
+
+	<div style="text-align:center;color:rgb(44, 62, 80)">
+		<h1><b>Estabelecimentos Cadastrados</b></h1>
+		<h5 class="mb-4 font-weight-bold" style="font-family:calibri, arial"> <i>Aqui você pode verificar os produtos de cada estabelecimento</i></h5>
+ 	</div>
+ 	
+ 	<div class="container my-5">
+  
+
+  <!--Carousel inicio-->
+  <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+	
+    <!--Slides-->
+    <div class="carousel-inner" role="listbox">
+
+      <!--Slide 01-->
+      <div class="carousel-item active">
+
+<!-- Estabelecimento 01 -->
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card mb-2">
+              <img class="card-img-top" src="/imagens/Loja1.jpg" style="height:220px">
+              <div class="card-body" style="background:whitesmoke">
+                <h4 class="card-title"><span th:text="${estab01.nome}"></span></h4>
+                <p class="card-text">Aqui você encontra os melhores, mais bonitos e másculos produtos.</p>
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#gasp">Lista de Produtos</button>
+              </div>
+            </div>
+          </div>
+
+<!-- Estabelecimento 05 -->
+          <div class="col-md-4 clearfix d-none d-md-block">
+            <div class="card mb-2">
+              <img class="card-img-top" src="/imagens/Loja2.jpg" style="height:220px">
+              <div class="card-body" style="background:whitesmoke" th:each="est : ${estab05}">
+                <h4 class="card-title"><span th:text="${est.nome}"></span></h4>
+                <p class="card-text">Aqui você encontra produtos delicados para decorar seu dia.</p>
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#imroth">Lista de Produtos</button>
+              </div>
+            </div>
+          </div>
+
+<!-- Estabelecimento 02 -->
+          <div class="col-md-4 clearfix d-none d-md-block">
+            <div class="card mb-2">
+              <img class="card-img-top" src="/imagens/loja3.jpg" style="height:220px">
+              <div class="card-body" style="background:whitesmoke" th:each="est : ${estab02}">
+                <h4 class="card-title"><span th:text="${est.nome}"></span></h4>
+                <p class="card-text">Aqui você encontra produtos que trazem paz para o seu dia.</p>
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#winter">Lista de Produtos</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!--/Slide 01-->
+
+      <!--Slide 02-->
+      <div class="carousel-item">
+
+<!-- Estabelecimento 03 -->
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card mb-2">
+              <img class="card-img-top" src="/imagens/Loja4.jpg" style="height:220px">
+              <div class="card-body" style="background:whitesmoke" th:each="est : ${estab03}">
+                <h4 class="card-title"><span th:text="${est.nome}"></span></h4>
+                <p class="card-text">Aqui você encontra todos os produtos que nós vendemos.</p>
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#lp">Lista de Produtos</button>
+              </div>
+            </div>
+          </div>
+
+<!-- Estabelecimento 04 -->
+          <div class="col-md-4 clearfix d-none d-md-block">
+            <div class="card mb-2">
+              <img class="card-img-top" src="/imagens/Loja5.jpg" style="height:220px">
+              <div class="card-body" style="background:whitesmoke" th:each="est : ${estab04}">
+                <h4 class="card-title"><span th:text="${est.nome}"></span></h4>
+                <p class="card-text">Não vendemos itens de papelaria, só vendemos café com leite.</p>
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#goll">Lista de Produtos</button>
+              </div>
+            </div>
+          </div>
+
+<!-- Estabelecimento 06 -->
+          <div class="col-md-4 clearfix d-none d-md-block">
+            <div class="card mb-2">
+              <img class="card-img-top" src="/imagens/Loja6.jpg" style="height:220px">
+              <div class="card-body" style="background:whitesmoke" th:each="est : ${estab06}">
+                <h4 class="card-title"><span th:text="${est.nome}"></span></h4>
+                <p class="card-text">Esse estabelecimento não deveria estar cadastrado aqui.</p>
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#lucas">Lista de Produtos</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!--/Slide 02-->
+
+    </div>
+    <!--/Slides-->
+    
+<br>
+  
+	<!--Indicadores-->
+	    <ol class="carousel-indicators">
+	      <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+	      <li data-target="#multi-item-example" data-slide-to="1"></li>
+	    </ol>
+    <!--/Indicadores-->
+    
+    <!--Controles-->
+		<div class="container" style="text-align:center; width:250pt; display:flex">
+			<div class="container" style="text-align:left">
+			  <a class="btn btn-info" href="#multi-item-example" role="button" data-slide="prev">
+			    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			    <span class="sr-only">Previous</span>
+			  </a>
+			</div>
+			<div class="container" style="text-align:right">
+			  <a class="btn btn-info" href="#multi-item-example" role="button" data-slide="next">
+			    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+			    <span class="sr-only">Next</span>
+			  </a>
+			</div>
+		</div>
+	<!--/Controles-->
+
+  </div>
+  <!--/Carousel Final-->
+  
+<br><br>
+<!-- 
+	 <div class="card red py-2" id="intro" style="background:rgba(0, 0, 0, 0) linear-gradient(to right, rgb(44, 62, 80), rgb(76, 161, 175)) repeat scroll 0% 0%;">
+
+      <div class="card-body text-white">
+
+        <h5 class="mb-4 font-weight-bold">
+          Aqui você pode verificar as listas de produtos dos estabelecimentos cadastrados...
+        </h5>
+        <p class="mb-n2">
+          Ou pode seguir e montar sua cesta de compras... <a class="btn btn-outline-light" aria-current="page" th:href="${(#mvc.url('UC#criarCesta')).build()}">Montar Cesta</a>
+        </p>
+
+      </div>
+ 
+    </div>
+
+</div>
+--> 	
+<!-- Modal Estabelecimento 01 -->
+<div class="modal fade" th:id="gasp" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background:whitesmoke">
+<br>
+	<div style="text-align:center;color:rgb(44, 62, 80)" th:each="est : ${estab01}">
+		<h1><span th:text="${est.nome}"></span></h1>
+	</div>
+<br>
+	<table class="table" id="tabelaResultado">
+		<thead style="background:rgb(207, 222, 243)">
+		    <tr>
+		      <th style="text-align:left" scope="col">Produtos Disponíveis</th>
+		      <th style="text-align:center" scope="col">Preços</th>
+		    </tr>
+	 	</thead>
+		<tbody>
+			<tr th:each="prods : ${produtos01}">
+				<td style="text-align:left"><span th:text="${prods.nome}"></span></td>
+				<td style="text-align:center"><span th:text="${prods.preco}"></span></td>
+			</tr>
+		</tbody>
+	</table>
+	  <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      </div>
+	</div>
+  </div>
+</div>
+
+<!-- Modal Estabelecimento 02 -->
+<div class="modal fade" th:id="winter" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background:whitesmoke">
+<br>
+	<div style="text-align:center;color:rgb(44, 62, 80)" th:each="est : ${estab02}">
+		<h1><span th:text="${est.nome}"></span></h1>
+	</div>
+<br>
+	<table class="table" id="tabelaResultado">
+		<thead style="background:rgb(207, 222, 243)">
+		    <tr>
+		      <th style="text-align:left" scope="col">Produtos Disponíveis</th>
+		      <th style="text-align:center" scope="col">Preços</th>
+		    </tr>
+	 	</thead>
+		<tbody>
+			<tr th:each="prods : ${produtos02}">
+				<td style="text-align:left"><span th:text="${prods.nome}"></span></td>
+				<td style="text-align:center"><span th:text="${prods.preco}"></span></td>
+			</tr>
+		</tbody>
+	</table>
+	  <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      </div>
+	</div>
+  </div>
+</div>
+
+<!-- Modal Estabelecimento 03 -->
+<div class="modal fade" th:id="lp" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background:whitesmoke">
+<br>
+	<div style="text-align:center;color:rgb(44, 62, 80)" th:each="est : ${estab03}">
+		<h1><span th:text="${est.nome}"></span></h1>
+	</div>
+<br>
+	<table class="table" id="tabelaResultado">
+		<thead style="background:rgb(207, 222, 243)">
+		    <tr>
+		      <th style="text-align:left" scope="col">Produtos Disponíveis</th>
+		      <th style="text-align:center" scope="col">Preços</th>
+		    </tr>
+	 	</thead>
+		<tbody>
+			<tr th:each="prods : ${produtos03}">
+				<td style="text-align:left"><span th:text="${prods.nome}"></span></td>
+				<td style="text-align:center"><span th:text="${prods.preco}"></span></td>
+			</tr>
+		</tbody>
+	</table>
+	  <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      </div>
+	</div>
+  </div>
+</div>
+
+<!-- Modal Estabelecimento 04 -->
+<div class="modal fade" th:id="goll" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background:whitesmoke">
+<br>
+	<div style="text-align:center;color:rgb(44, 62, 80)" th:each="est : ${estab04}">
+		<h1><span th:text="${est.nome}"></span></h1>
+	</div>
+<br>
+	<table class="table" id="tabelaResultado">
+		<thead style="background:rgb(207, 222, 243)">
+		    <tr>
+		      <th style="text-align:left" scope="col">Produtos Disponíveis</th>
+		      <th style="text-align:center" scope="col">Preços</th>
+		    </tr>
+	 	</thead>
+		<tbody>
+			<tr th:each="prods : ${produtos04}">
+				<td style="text-align:left"><span th:text="${prods.nome}"></span></td>
+				<td style="text-align:center"><span th:text="${prods.preco}"></span></td>
+			</tr>
+		</tbody>
+	</table>
+	  <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      </div>
+	</div>
+  </div>
+</div>
+
+<!-- Modal Estabelecimento 05 -->
+<div class="modal fade" th:id="imroth" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background:whitesmoke">
+<br>
+	<div style="text-align:center;color:rgb(44, 62, 80)" th:each="est : ${estab05}">
+		<h1><span th:text="${est.nome}"></span></h1>
+	</div>
+<br>
+	<table class="table" id="tabelaResultado">
+		<thead style="background:rgb(207, 222, 243)">
+		    <tr>
+		      <th style="text-align:left" scope="col">Produtos Disponíveis</th>
+		      <th style="text-align:center" scope="col">Preços</th>
+		    </tr>
+	 	</thead>
+		<tbody>
+			<tr th:each="prods : ${produtos05}">
+				<td style="text-align:left"><span th:text="${prods.nome}"></span></td>
+				<td style="text-align:center"><span th:text="${prods.preco}"></span></td>
+			</tr>
+		</tbody>
+	</table>
+	  <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      </div>
+	</div>
+  </div>
+</div>
+
+<!-- Modal Estabelecimento 06 -->
+<div class="modal fade" th:id="lucas" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background:whitesmoke">
+<br>
+	<div style="text-align:center;color:rgb(44, 62, 80)" th:each="est : ${estab06}">
+		<h1><span th:text="${est.nome}"></span></h1>
+	</div>
+<br>
+	<table class="table" id="tabelaResultado">
+		<thead style="background:rgb(207, 222, 243)">
+		    <tr>
+		      <th style="text-align:left" scope="col">Produtos Disponíveis</th>
+		      <th style="text-align:center" scope="col">Preços</th>
+		    </tr>
+	 	</thead>
+		<tbody>
+			<tr th:each="prods : ${produtos06}">
+				<td style="text-align:left"><span th:text="${prods.nome}"></span></td>
+				<td style="text-align:center"><span th:text="${prods.preco}"></span></td>
+			</tr>
+		</tbody>
+	</table>
+	  <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      </div>
+	</div>
+  </div>
+</div>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

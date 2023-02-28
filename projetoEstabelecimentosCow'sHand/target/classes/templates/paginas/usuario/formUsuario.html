@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="hhtp://thymeleaf.org" xmlns:layout="http://ultraq.net.nz/thymeleaf/layout">
+
+<head>
+
+ <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="/materialize/css/materialize.min.css"  media="screen,projection"/>
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <link rel="stylesheet" href="/CSS/StyleCSS.css"/>
+<title>Cow's Hand</title>
+</head>
+
+<body style="background:linear-gradient(to right, rgb(29, 67, 80), rgb(164, 57, 49))">
+
+	<h1>Crie sua Conta Gratuitamente</h1>
+
+<div class ="container formCadastro">
+	<h2>Criar Conta</h2>
+	<form method="post">
+		<div class="row">
+		
+			Nome:	 <input type="text" value="" name="nome" required/>
+			<div class = "input-field col s6"> 
+			Email:	 <input type="text" value="" name ="email" required/>
+			</div>
+			<div class = "input-field col s3"> 
+			Telefone:<input type="text" value="" name="telefone" required/> 
+			</div>
+			<div class = "input-field col s3"> 
+			Senha:	 <input type="text" value="" name="senha" required/>
+			</div>
+		
+		</div>
+		
+		<div style="text-align:center">
+			<button class="botao" type="submit">Salvar</button>
+			<a class="botao" aria-current="page" th:href="${(#mvc.url('IC#login')).build()}">Login</a>
+		</div>
+	</form>
+</div>
+
+ <!--JavaScript at end of body for optimized loading-->
+  <script type="text/javascript" src="/materialize/js/materialize.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</body>
+</html>

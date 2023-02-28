@@ -1,0 +1,17 @@
+com\example\demo\model\entities\Estabelecimento.class
+com\example\demo\model\entities\CestaProdutos.class
+com\example\demo\security\AcessoConfig.class
+com\example\demo\model\entities\ExibirEstabelecimentoEvalorCompra.class
+com\example\demo\controllers\UsuarioController.class
+com\example\demo\model\entities\Usuario.class
+com\example\demo\controllers\EstabelecimentoController.class
+com\example\demo\model\entities\ListaComprasEstabelecimento.class
+com\example\demo\controllers\IndexController.class
+com\example\demo\model\entities\Produto.class
+com\example\demo\model\repositories\EstabelecimentoRepository.class
+com\example\demo\ProjetoEstabelecimentoApplication.class
+com\example\demo\model\repositories\ProdutosRepository.class
+com\example\demo\security\LoginUsuario.class
+com\example\demo\security\Cripto.class
+com\example\demo\security\AcessoController.class
+com\example\demo\model\repositories\UsuariosRepository.class

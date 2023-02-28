@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="hhtp://thymeleaf.org" xmlns:layout="http://ultraq.net.nz/thymeleaf/layout">
+
+<head>
+<meta charset="utf-8">
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+<link rel="stylesheet" type="text/css" href="/CSS/StyleCSS.css"/>
+ 	
+<title>Cow's Hand</title>
+</head>
+<nav class="navbar navbar-expand-sm navbar-light" id="neubar">
+  <div class="container" style="height: 100px">
+    <a class="navbar-brand" href="/"><img src="/imagens/LogoSemNome.png" height="80" /></a>
+      <ul class="navbar-nav ml-auto">
+         <li><a href="/logout"><button type="button" class="btn btn-primary"><i class="bi bi-x-circle"></i>&nbsp;&nbsp;Sair</button></a></li>
+         <li><a href="/"><button type="button" class="btn btn-primary"><i class="bi bi-house"></i>&nbsp;&nbsp;Home</button></a></li>
+         <li><a href="/usuario/telas"><button type="button" class="btn btn-primary"><i class="bi bi-shop"></i>&nbsp;&nbsp;Estabelecimentos</button></a></li>
+         <li><a href="/usuario/produtos"><button type="button" class="btn btn-primary"><i class="bi bi-list-task"></i>&nbsp;&nbsp;Monte sua lista</button></a></li>
+
+      </ul>
+    </div>
+
+</nav>
+<br>
+
+<body style="background:linear-gradient(to top, #2196F3, rgb(207, 222, 243))">
+
+<!-- <div th:each="estab : ${estab}">
+	<div style="text-align:center;color:#bdc3c7">
+		<h1>Estabelecimento <span th:text="${estab.nome}"></span></h1>
+	</div>-->
+
+<div style="text-align:center;color:rgb(44, 62, 80)">
+		<h1><b>Valor da lista de compras por estabelecimento</b></h1>
+</div>
+<br>
+
+	<div class="container" style="background:#E0EAFC; width:600pt; display:flex">
+
+	<div class="container">
+<br>
+	<table class="table table-striped">
+		<thead style="background: rgb(170,170,170); color:white">
+			<tr>
+				<th scope="col">Produtos Disponíveis</th>
+				<th scope="col" style="text-align:center">Preços</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="prods : ${result}">
+				<td><span th:text= "${prods.nome}"></span></td>
+				<td style="text-align:center"><span th:text= "${prods.preco}"></span></td>
+			</tr>
+		</tbody>
+
+	</table>
+	</div>
+	
+<br>
+
+	<div class="container">
+<br>
+	<table class="table table-striped">
+		<thead style="background: rgb(170,170,170); color:white">
+			<tr>
+				<th scope="col">Produtos da Cesta</th>
+				<th scope="col" style="text-align:center">Quantidade</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="cesta : ${cesta}">
+				<td><span th:text="${cesta.nome}"></span></td>
+				<td style="text-align:center"><span th:text="${cesta.quantidade}"></span></td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	
+	</div>
+
+<br>
+
+	<div style="text-align:center">
+		<button onclick="voltar()" class="btn btn-secondary" style="background:rgb(10,105,325)">Voltar</button>
+	</div>
+
+
+	
+<script>
+	function voltar(){
+		window.history.back()
+	}
+</script>
+</body>
+</html>
